@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성민이를 위한 메시지 🧸❤️</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Gaegu', cursive, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe6e8 0%, #fff0f5 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* 하트 배경 애니메이션 */
+    .bg-heart {
+      position: absolute;
+      color: #ff8fa3;
+      opacity: 0.6;
+      animation: floatUp 4s infinite linear;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5) rotate(0deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* 카드 컨테이너 */
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 4px solid #ffb3c1;
+      border-radius: 30px;
+      padding: 30px 20px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+      position: relative;
+      z-index: 10;
+      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 곰돌이 캐릭터 및 애니메이션 */
+    .bear {
+      font-size: 80px;
+      margin-bottom: 10px;
+      display: inline-block;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 2rem;
+      margin-bottom: 25px;
+      word-break: keep-all;
+      line-height: 1.3;
+    }
+
+    p {
+      color: #590d22;
+      font-size: 1.6rem;
+      line-height: 1.4;
+      margin-bottom: 25px;
+      word-break: keep-all;
+    }
+
+    /* 버튼 스타일 */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    button {
+      background-color: #ff8fa3;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 0 #c9184a;
+    }
+
+    button:hover {
+      background-color: #ff758f;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 0 #c9184a;
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #c9184a;
+    }
+
+    button.secondary {
+      background-color: #ffb3c1;
+      box-shadow: 0 4px 0 #ff758f;
+    }
+
+    button.secondary:hover {
+      background-color: #ff9baa;
+      box-shadow: 0 6px 0 #ff758f;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 자동 생성되는 배경 하트들 -->
+  <div id="heart-container"></div>
+
+  <!-- 페이지 1 -->
+  <div id="page-1" class="card">
+    <div class="bear">🧸</div>
+    <h1>안녕하세요! 노성민씨!</h1>
+    <div class="btn-group">
+      <button onclick="goToPage(2)">안녕하세요</button>
+      <button class="secondary" onclick="showError()">안녕 못합니다</button>
+    </div>
+  </div>
+
+  <!-- 페이지 2 -->
+  <div id="page-2" class="card hidden">
+    <div class="bear">🧸💖</div>
+    <h1>김시현님이 보고싶나요?</h1>
+    <div class="btn-group">
+      <button onclick="goToPage(3)">네</button>
+      <button class="secondary" onclick="showError()">아니요</button>
+    </div>
+  </div>
+
+  <!-- 페이지 3 -->
+  <div id="page-3" class="card hidden">
+    <div class="bear">🧸💕</div>
+    <h1>김시현님을 사랑하나요?</h1>
+    <div class="btn-group">
+      <button onclick="goToPage(4)">아주 많이요</button>
+      <button class="secondary" onclick="showError()">딱히요</button>
+    </div>
+  </div>
+
+  <!-- 최종 결과 페이지 (페이지 4) -->
+  <div id="page-4" class="card hidden">
+    <div class="bear" style="animation: bounce 1s infinite;">🧸❤️🎉</div>
+    <p>나도 너무너무 보고싶다ㅜㅜ 세상에서 제일 소중한 내 전부 성민아 많이많이 사랑해♡ 항상 늘 곁에서 힘이 되는 여자친구가 되도록 노력할게ㅎㅎ 오늘 하루도 화이팅!!</p>
+  </div>
+
+  <!-- 경고/오답 모달 창 -->
+  <div id="error-modal" class="card hidden">
+    <div class="bear">🥺</div>
+    <h1>다시 선택하세요!</h1>
+    <div class="btn-group">
+      <button onclick="goBack()">뒤로가기</button>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 1;
+
+    // 페이지 이동 함수
+    function goToPage(pageNumber) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => card.classList.add('hidden'));
+
+      const targetPage = document.getElementById(`page-${pageNumber}`);
+      if (targetPage) {
+        targetPage.classList.remove('hidden');
+        currentPage = pageNumber;
+      }
+    }
+
+    // 경고 창 표시 함수
+    function showError() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => card.classList.add('hidden'));
+
+      document.getElementById('error-modal').classList.remove('hidden');
+    }
+
+    // 첫 화면으로 돌아가는 함수
+    function goBack() {
+      goToPage(1);
+    }
+
+    // 배경에 날아다니는 하트 생성 함수
+    function createHearts() {
+      const container = document.getElementById('heart-container');
+      const heartIcons = ['❤️', '💖', '💕', '💗', '🤍'];
+
+      for (let i = 0; i < 20; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('bg-heart');
+        heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.fontSize = `${Math.random() * 20 + 15}px`;
+        heart.style.animationDuration = `${Math.random() * 3 + 3}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(heart);
+      }
+    }
+
+    window.onload = createHearts;
+  </script>
+</body>
+</html>
